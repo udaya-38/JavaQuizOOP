@@ -4,7 +4,7 @@ A console-based Quiz Management System developed using Java and Object-Oriented 
 
 This project started as a simple single-class Java quiz application and was redesigned using OOP concepts to make the application more structured, modular, maintainable, and easier to extend.
 
-PROJECT OVERVIEW
+## Project Overview
 
 The application allows users to:
 
@@ -24,8 +24,7 @@ Currently, the application contains two quiz categories:
 
 The application runs completely through the Java console and does not require a database or external services.
 
-
-TECHNOLOGIES USED
+## Technologies Used
 
 - Java
 - Object-Oriented Programming (OOP)
@@ -35,10 +34,9 @@ TECHNOLOGIES USED
 - Console-based application
 - Git & GitHub
 
+## OOP Concepts Used
 
-OOP CONCEPTS USED
-
-1. ENCAPSULATION
+### 1. Encapsulation
 
 Class data is kept private and accessed through methods.
 
@@ -49,15 +47,13 @@ private final String questionText;
 
 This helps protect the internal state of objects.
 
-
-2. ABSTRACTION
+### 2. Abstraction
 
 The Question class is an abstract class that defines common behavior for quiz questions.
 
 The actual implementation is provided by subclasses.
 
-
-3. INHERITANCE
+### 3. Inheritance
 
 MCQQuestion inherits from the Question class.
 
@@ -67,8 +63,7 @@ public class MCQQuestion extends Question
 
 This allows common properties and behavior to be reused.
 
-
-4. POLYMORPHISM
+### 4. Polymorphism
 
 The application works with the parent type:
 
@@ -78,50 +73,34 @@ while the actual objects are MCQQuestion objects.
 
 This allows the quiz system to work with different types of questions without changing the main quiz logic.
 
-
-5. COMPOSITION
+### 5. Composition
 
 QuizService works with a collection of Question objects to conduct the quiz.
 
 This keeps quiz execution separate from question data.
 
-
-PROJECT STRUCTURE
+## Project Structure
 
 JavaQuizOOP/
-|
-|-- src/
-|   |
-|   |-- com/
-|       |
-|       |-- udaya/
-|           |
-|           |-- quiz/
-|               |
-|               |-- Main.java
-|               |
-|               |-- data/
-|               |   |
-|               |   |-- QuestionBank.java
-|               |
-|               |-- model/
-|               |   |
-|               |   |-- Question.java
-|               |   |-- MCQQuestion.java
-|               |
-|               |-- service/
-|                   |
-|                   |-- AuthService.java
-|                   |-- QuizService.java
-|
-|-- .gitignore
-|
-|-- README.md
+├── src/
+│   └── com/
+│       └── udaya/
+│           └── quiz/
+│               ├── Main.java
+│               ├── data/
+│               │   └── QuestionBank.java
+│               ├── model/
+│               │   ├── Question.java
+│               │   └── MCQQuestion.java
+│               └── service/
+│                   ├── AuthService.java
+│                   └── QuizService.java
+├── .gitignore
+└── README.md
 
+## Class Responsibilities
 
-CLASS RESPONSIBILITIES
-
-Main.java
+### Main.java
 
 Acts as the entry point of the application.
 
@@ -133,8 +112,7 @@ Responsible for:
 - Selecting quiz categories
 - Controlling the application loop
 
-
-Question.java
+### Question.java
 
 Abstract base class for quiz questions.
 
@@ -144,8 +122,7 @@ Responsible for:
 - Defining common question behavior
 - Demonstrating abstraction
 
-
-MCQQuestion.java
+### MCQQuestion.java
 
 Represents a multiple-choice question.
 
@@ -162,8 +139,7 @@ Demonstrates:
 - Method overriding
 - Polymorphism
 
-
-QuestionBank.java
+### QuestionBank.java
 
 Stores the quiz questions.
 
@@ -174,8 +150,7 @@ Currently contains:
 
 Keeping questions separately from quiz logic makes it easier to add or modify questions.
 
-
-AuthService.java
+### AuthService.java
 
 Handles user authentication.
 
@@ -187,8 +162,7 @@ Responsible for:
 
 Authentication logic is separated from quiz logic.
 
-
-QuizService.java
+### QuizService.java
 
 Controls the actual quiz.
 
@@ -201,8 +175,7 @@ Responsible for:
 - Calculating percentage
 - Displaying performance
 
-
-APPLICATION FLOW
+## Application Flow
 
 Start Application
        |
@@ -239,10 +212,9 @@ Invalid    Valid
           v
        Main Menu
 
+## How to Run
 
-HOW TO RUN
-
-PREREQUISITES
+### Prerequisites
 
 Install:
 
@@ -257,8 +229,7 @@ Check Java compiler:
 
 javac -version
 
-
-RUN USING VS CODE
+### Run Using VS Code
 
 1. Clone or download the repository.
 2. Open the project folder in VS Code.
@@ -269,8 +240,7 @@ src/com/udaya/quiz/Main.java
 
 5. Click the Run button.
 
-
-RUN USING TERMINAL
+### Run Using Terminal
 
 From the project root:
 
@@ -280,8 +250,7 @@ Then run:
 
 java -cp out com.udaya.quiz.Main
 
-
-DEMO LOGIN
+## Demo Login
 
 Username: Karim
 Password: Karim@#
@@ -290,8 +259,7 @@ These credentials are used only for this educational console application.
 
 For a production application, passwords should not be hardcoded in source code.
 
-
-EXAMPLE
+## Example
 
 =================================
        JAVA QUIZ MANAGEMENT
@@ -309,7 +277,6 @@ Select Quiz Topic
 
 Enter your choice: 1
 
-
 After completing the quiz:
 
 ------------- RESULT -------------
@@ -318,8 +285,7 @@ Percentage : 80.00%
 Performance: Good
 ----------------------------------
 
-
-LEARNING OBJECTIVES
+## Learning Objectives
 
 This project was developed to strengthen practical understanding of:
 
@@ -336,8 +302,7 @@ This project was developed to strengthen practical understanding of:
 - Separation of Responsibilities
 - Basic Java Application Structure
 
-
-FUTURE IMPROVEMENTS
+## Future Improvements
 
 Possible future improvements include:
 
@@ -352,8 +317,7 @@ Possible future improvements include:
 - Convert the project into a Spring Boot REST API
 - Add a web-based frontend
 
-
-WHY I BUILT THIS PROJECT
+## Why I Built This Project
 
 The initial version of the quiz application was implemented mainly inside a single Java class.
 
@@ -363,15 +327,13 @@ I redesigned the application using OOP principles by separating these responsibi
 
 The main objective was to understand how abstraction, inheritance, encapsulation, and polymorphism can be applied to a practical Java application.
 
-
-PROJECT TYPE
+## Project Type
 
 Academic / Learning Mini Project
 
 Built to demonstrate practical Java and OOP concepts through a console-based application.
 
-
-AUTHOR
+## Author
 
 Udaya Giri
 
