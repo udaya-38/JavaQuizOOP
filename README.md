@@ -153,7 +153,7 @@ java -cp out com.udaya.quiz.Main
 🔐 Demo Login
 ```text
 Username: Karim
-Password: Karim@#
+Password: Karim123@#
 ```
 These credentials are included only for this educational project.
 For a production application, credentials should be stored securely instead of being hardcoded.
@@ -165,7 +165,7 @@ For a production application, credentials should be stored securely instead of b
 =================================
 
 Enter Username: Karim
-Enter Password: Karim@#
+Enter Password: Karim123@#
 
 Access Accepted.
 
