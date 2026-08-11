@@ -1,57 +1,55 @@
 Java Quiz Management System
-A console-based Quiz Management System developed using Java and Object-Oriented Programming (OOP) principles.
-This project started as a simple single-class Java quiz application and was redesigned using OOP concepts to make the application more structured, modular, maintainable, and easier to extend.
-Project Overview
-The application allows users to:
+A console-based quiz application built using Java and Object-Oriented Programming (OOP) concepts.
+The project was redesigned from a simple single-class quiz application into a modular structure where authentication, question data, quiz execution, and application flow are handled by separate classes.
+---
+📌 Project Overview
+The Java Quiz Management System allows users to:
 Login using username and password
 Select a quiz category
 Answer multiple-choice questions
-Receive immediate answer feedback
+Receive feedback for answers
 Calculate the final score
-View percentage and performance level
-Continue selecting different quiz categories
+View percentage and performance
+Attempt different quiz categories
 Exit the application safely
-Currently, the application contains two quiz categories:
+The application currently provides:
 Java Basic Questions
 Logical Questions
-The application runs completely through the Java console and does not require a database or external services.
-Technologies Used
-Java
-Object-Oriented Programming (OOP)
-Java Collections
-ArrayList
-Scanner
-Console-based application
-Git & GitHub
-OOP Concepts Used
-1. Encapsulation
-Class data is kept private and accessed through methods.
-Example:
+It is a console-based mini project and does not require a database or external services.
+---
+🛠️ Technologies Used
+Technology	Purpose
+Java	Core programming language
+OOP	Application design
+ArrayList	Store question objects
+Scanner	Console input
+Git	Version control
+GitHub	Source code management
+---
+🧠 OOP Concepts Demonstrated
+Encapsulation
+Class fields are kept private and accessed through methods.
 ```java
 private final int id;
 private final String questionText;
 ```
-This helps protect the internal state of objects.
-2. Abstraction
-The `Question` class is an abstract class that defines common behavior for quiz questions.
-The actual implementation is provided by subclasses.
-3. Inheritance
-`MCQQuestion` inherits from the `Question` class.
+Abstraction
+`Question` is an abstract class that defines common properties and behavior for questions.
+Inheritance
+`MCQQuestion` extends the `Question` class.
 ```java
 public class MCQQuestion extends Question
 ```
-This allows common properties and behavior to be reused.
-4. Polymorphism
-The application works with the parent type:
+Polymorphism
+The application can work with questions using the parent `Question` type.
 ```java
 List<Question> questions;
 ```
-while the actual objects are `MCQQuestion` objects.
-This allows the quiz system to work with different types of questions without changing the main quiz logic.
-5. Composition
-`QuizService` works with a collection of `Question` objects to conduct the quiz.
-This keeps quiz execution separate from question data.
-Project Structure
+This allows different question implementations to be handled through a common reference.
+Separation of Responsibilities
+Different classes handle different parts of the application instead of putting all functionality inside one class.
+---
+📂 Project Structure
 ```text
 JavaQuizOOP/
 │
@@ -76,130 +74,91 @@ JavaQuizOOP/
 ├── .gitignore
 └── README.md
 ```
-Class Responsibilities
-Main.java
-Acts as the entry point of the application.
-Responsible for:
-Starting the application
-Login flow
-Displaying the main menu
-Selecting quiz categories
-Controlling the application loop
-Question.java
-Abstract base class for quiz questions.
-Responsible for:
-Storing common question information
-Defining common question behavior
-Demonstrating abstraction
-MCQQuestion.java
-Represents a multiple-choice question.
-Responsible for:
-Storing answer options
-Storing the correct answer
-Displaying the question
-Checking the user's answer
-Demonstrates:
-Inheritance
-Method overriding
-Polymorphism
-QuestionBank.java
-Stores the quiz questions.
-Currently contains:
-Java Basic Questions
-Logical Questions
-Keeping questions separately from quiz logic makes it easier to add or modify questions.
-AuthService.java
-Handles user authentication.
-Responsible for:
-Reading username
-Reading password
-Validating login credentials
-Authentication logic is separated from quiz logic.
-QuizService.java
-Controls the actual quiz.
-Responsible for:
-Displaying questions
-Reading answers
-Validating answers
-Calculating the score
-Calculating percentage
-Displaying performance
-Application Flow
+---
+📋 Class Responsibilities
+Class	Responsibility
+`Main`	Starts and controls the application
+`Question`	Abstract base class for questions
+`MCQQuestion`	Represents multiple-choice questions
+`QuestionBank`	Provides quiz questions
+`AuthService`	Handles username/password validation
+`QuizService`	Runs the quiz and calculates results
+---
+🔄 Application Flow
 ```text
-Start Application
-       │
-       ▼
-     Login
-       │
-       ▼
+Start
+  │
+  ▼
+Login
+  │
+  ▼
 Validate Credentials
+  │
+  ├── Invalid ──► Exit
+  │
+  ▼
+Main Menu
+  │
+  ├── Java Quiz
+  │
+  ├── Logical Quiz
+  │
+  └── Exit
        │
-   ┌───┴────┐
-   │        │
-Invalid    Valid
-   │        │
-   ▼        ▼
-  Exit   Main Menu
-             │
-       ┌─────┼─────┐
-       │     │     │
-       ▼     ▼     ▼
-     Java  Logical Exit
-     Quiz   Quiz
-       │      │
-       └──┬───┘
-          │
-          ▼
-   Answer Questions
-          │
-          ▼
-    Calculate Score
-          │
-          ▼
-    Display Result
-          │
-          ▼
-       Main Menu
+       ▼
+Answer Questions
+       │
+       ▼
+Calculate Score
+       │
+       ▼
+Display Result
+       │
+       ▼
+Return to Main Menu
 ```
-How to Run
+---
+▶️ How to Run
 Prerequisites
-Install:
+Make sure you have:
 Java JDK 17 or later
 VS Code or IntelliJ IDEA
-Check Java installation:
+Verify Java installation:
 ```bash
 java -version
 ```
-Check Java compiler:
+Verify the Java compiler:
 ```bash
 javac -version
 ```
 Run Using VS Code
 Clone or download the repository.
 Open the project folder in VS Code.
-Make sure the Java Extension Pack is installed.
+Install the Java Extension Pack if required.
 Open:
 ```text
 src/com/udaya/quiz/Main.java
 ```
-Click the Run button.
+Click Run.
 Run Using Terminal
 From the project root:
 ```bash
 javac -d out src/com/udaya/quiz/Main.java src/com/udaya/quiz/model/*.java src/com/udaya/quiz/service/*.java src/com/udaya/quiz/data/*.java
 ```
-Then run:
+Run the application:
 ```bash
 java -cp out com.udaya.quiz.Main
 ```
-Demo Login
+---
+🔐 Demo Login
 ```text
 Username: Karim
 Password: Karim@#
 ```
-These credentials are used only for this educational console application.
-For a production application, passwords should not be hardcoded in source code.
-Example
+These credentials are included only for this educational project.
+For a production application, credentials should be stored securely instead of being hardcoded.
+---
+💻 Sample Console Output
 ```text
 =================================
        JAVA QUIZ MANAGEMENT
@@ -211,54 +170,62 @@ Enter Password: Karim@#
 Access Accepted.
 
 Select Quiz Topic
+
 1. Java Basic Questions
 2. Logical Questions
 3. Exit
 
 Enter your choice: 1
 ```
-After completing the quiz:
+Example result:
 ```text
 ------------- RESULT -------------
+
 Score      : 8 / 10
 Percentage : 80.00%
 Performance: Good
+
 ----------------------------------
 ```
-Learning Objectives
-This project was developed to strengthen practical understanding of:
-Java Classes and Objects
+---
+🎯 Learning Objectives
+This project helped me practice:
+Java classes and objects
 Constructors
 Encapsulation
 Abstraction
 Inheritance
 Polymorphism
-Method Overriding
-Collections
-ArrayList
-Input Handling
-Separation of Responsibilities
-Basic Java Application Structure
-Future Improvements
-Possible future improvements include:
+Method overriding
+ArrayList and Collections
+Console input handling
+Class organization
+Separation of responsibilities
+Basic Git and GitHub workflow
+---
+🚀 Future Improvements
+Possible improvements include:
 Add more quiz categories
-Add a timer for each quiz
-Store users in MySQL
-Store questions in a database
-Save previous scores
-Add an administrator question management system
 Add random question selection
 Add difficulty levels
-Convert the project into a Spring Boot REST API
+Add a quiz timer
+Store questions in MySQL
+Store user scores
+Add an administrator module
+Add persistent user accounts
+Convert the application into a Spring Boot backend
 Add a web-based frontend
-Why I Built This Project
-The initial version of the quiz application was implemented mainly inside a single Java class.
-Authentication, questions, user input, scoring, and menu handling were closely connected.
-I redesigned the application using OOP principles by separating these responsibilities into different classes.
-The main objective was to understand how abstraction, inheritance, encapsulation, and polymorphism can be applied to a practical Java application.
-Project Type
+---
+💡 Why This Project?
+The initial version of this application was implemented mainly inside a single Java class.
+As the application grew, authentication, questions, input handling, scoring, and menu logic became closely connected.
+I redesigned the application using OOP principles and separated these responsibilities into different classes.
+The main goal was to understand how OOP concepts can be applied to a practical Java application instead of using them only in individual programming examples.
+---
+📌 Project Type
 Academic / Learning Mini Project
-Built to demonstrate practical Java and OOP concepts through a console-based application.
-Author
+A console-based Java project created to demonstrate practical understanding of Java and Object-Oriented Programming.
+---
+👨‍💻 Author
 Udaya Giri
 B.Tech - Artificial Intelligence and Data Science
